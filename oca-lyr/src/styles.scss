@@ -1,4 +1,43 @@
-/* You can add global styles to this file, and also import other style files */
+@use "@angular/material" as mat;
+@include mat.core();
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+$oca_project_lyr-primary: mat.define-palette(mat.$indigo-palette);
+$oca_project_lyr-accent: mat.define-palette(mat.$indigo-palette, A200, A100, A400);
+
+$oca_project_lyr-warn: mat.define-palette(mat.$red-palette);
+
+$oca_project_lyr-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $oca_project_lyr-primary,
+      accent: $oca_project_lyr-accent,
+      warn: $oca_project_lyr-warn,
+    ),
+  )
+);
+
+@include mat.all-component-themes($oca_project_lyr-theme);
+
+html,
+body {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 12px;
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+
+$color-zero: #002445;
+$color-one: #FF4338;
+$color-two: #555555;
+$color-tri: #F6F8F9
