@@ -1,6 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 
@@ -18,7 +19,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private authService: AuthenticationService
+    private authService: AuthenticationService,
+    private snackBar: MatSnackBar
   ) {
     this.signin = this.fb.group({
       email: ['', [Validators.email, Validators.required]],
@@ -69,7 +71,10 @@ export class LoginComponent implements OnInit {
     }).subscribe(() => {
       this.router.navigate(['home']); 
     }, (error:any) => {
-      this.isLoggingIn = true;
+      this.isLoggingIn = false;
+      this.snackBar.open('Las credenciales no son correctas. Intente de nuevo', 'Cerrar',{
+        duration: 4000
+      });
     })
   }
 
