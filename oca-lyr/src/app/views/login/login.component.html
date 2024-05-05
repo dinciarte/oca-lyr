@@ -11,7 +11,7 @@
       <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
       <mat-error *ngIf="getErrorMessage('password') !== ''">{{ getErrorMessage('password') }}</mat-error>
     </mat-form-field>
-    <button class="login-form__button ripple" [class.spinner]="loading" [disabled]="loading" (click)="save()">
+    <button class="login-form__button ripple" [class.spinner]="loading" [disabled]="loading" (click)="login()">
         <span [hidden]="loading">Ingresa</span>
     </button>
   </form>

@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -27,7 +30,16 @@ import { MatIconModule } from '@angular/material/icon';
     MatInputModule,
     MatButtonModule,
     MatIconModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp({
+      apiKey: "AIzaSyABvLXmVDA5-mM2MQUNwkJAURz9pGnEcHY",
+      authDomain: "oca-p-lyr.firebaseapp.com",
+      projectId: "oca-p-lyr",
+      storageBucket: "oca-p-lyr.appspot.com",
+      messagingSenderId: "839679180545",
+      appId: "1:839679180545:web:5bd6f14066db5c7e636500"
+    }),
+    AngularFireAuthModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
