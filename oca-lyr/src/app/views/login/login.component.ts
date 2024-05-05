@@ -28,14 +28,6 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {}
 
-  get emailInput() {
-    return this.signin.get('email');
-  }
-
-  get passwordInput() {
-    return this.signin.get('password');
-  }
-
   getErrorMessage(controlName: string) {
     const control = this.signin.get(controlName);
     if (control && control.invalid) {
@@ -52,20 +44,33 @@ export class LoginComponent implements OnInit {
       console.log('Form values:', this.signin.value); // Log the entire form values
     }
   }
-
-  login() {
-    this.isLoggingIn = true;
-
-    console.log('Email:', this.emailInput?.value);
-    console.log('Password:', this.passwordInput?.value);
-
-    // Your existing code follows...
-  }
-
+  
   save(): void {
     this.loading = true;
     setTimeout(() => {
       this.loading = false;
     }, 2000);
   }
+
+  login() {
+    this.save();
+    
+    this.isLoggingIn = true;
+
+    const email = this.signin.get('email')
+    const password = this.signin.get('password')
+
+    console.log(email?.value);
+    console.log(password?.value);
+    
+    this.authService.signIn({
+      email: email?.value,
+      password: password?.value
+    }).subscribe(() => {
+      this.router.navigate(['home']); 
+    }, (error:any) => {
+      this.isLoggingIn = true;
+    })
+  }
+
 }
