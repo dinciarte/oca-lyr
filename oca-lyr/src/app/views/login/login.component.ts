@@ -30,17 +30,6 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {}
 
-  // getErrorMessage(controlName: string) {
-  //   const control = this.signin.get(controlName);
-  //   if (control && control.invalid) {
-  //     if (control.hasError('required')) {
-  //       return 'Debe ingresar un valor';
-  //     }
-  //     return control.hasError('minlength') ? 'La contraseña debe tener al menos 6 caracteres' : '';
-  //   }
-  //   return '';
-  // }
-
   getErrorMessage(controlName: string) {
     const control = this.signin.get(controlName);
     if (control && control.invalid) {
