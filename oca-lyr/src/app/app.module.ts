@@ -14,6 +14,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import { MatIconModule } from '@angular/material/icon';
       appId: "1:839679180545:web:5bd6f14066db5c7e636500"
     }),
     AngularFireAuthModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

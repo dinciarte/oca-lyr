@@ -11,7 +11,7 @@ export class AuthenticationService {
     private auth: AngularFireAuth
   ) { }
 
-  signIn(params: SignIn ): Observable<any> {
+  signIn( params: SignIn ): Observable<any> {
     return from(this.auth.signInWithEmailAndPassword(
       params.email, params.password
     ));
